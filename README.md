@@ -1,4 +1,4 @@
-# Quiz Game 🧠
+# Quiz Game 
 
 A simple terminal-based quiz game built in Python. 10 questions, multiple choice, score tracking, and a replay option — no libraries except `random`.
 
