@@ -1,6 +1,6 @@
-# Quiz Game 
+# Quiz Game
 
-A simple terminal-based quiz game built in Python. 10 questions, multiple choice, score tracking, and a replay option — no libraries except `random`.
+A simple terminal-based quiz game built in Python. 10 questions, multiple choice, score tracking, hint system, and a replay option — no libraries except `random`.
 
 Built as my **third Python project** to practice writing and using functions.
 
@@ -9,9 +9,11 @@ Built as my **third Python project** to practice writing and using functions.
 ## What it does
 
 - Asks 10 multiple choice questions (A/B/C/D)
-- Shuffles question order every time so it's not the same each run
+- Shuffles question order every time so it is not the same each run
 - Checks each answer and gives instant feedback
+- Hint system — type `hint` instead of an answer to get a clue (costs 0.5 points if you get it right)
 - Tracks score and lists every question you got wrong at the end
+- Shows your score history for the whole session after each round
 - Gives honest feedback based on your percentage
 - Asks if you want to play again
 
@@ -22,13 +24,14 @@ Built as my **third Python project** to practice writing and using functions.
 | Function | What it does |
 |----------|-------------|
 | `show_welcome()` | Prints the intro screen |
+| `show_score_history()` | Shows all scores from the current session |
 | `show_question()` | Displays a single question and its options |
 | `check_answer()` | Compares user input with correct answer, returns True/False |
 | `get_feedback()` | Takes score and returns a feedback string |
 | `show_result()` | Prints final score, percentage, feedback, and wrong questions |
 | `play_game()` | Main function that runs the whole game loop |
 
-Each function does exactly one job. That's the whole point.
+Each function does exactly one job. That is the whole point.
 
 ---
 
@@ -39,42 +42,51 @@ Each function does exactly one job. That's the whole point.
            QUIZ GAME
 =============================================
 10 questions. Pick A, B, C or D.
-Type your answer and press Enter.
+Type 'hint' to get a clue.
+Using a hint costs 0.5 points if correct.
 =============================================
+
+No previous scores this session.
 
 Enter your name: Himanshu
 
-Alright Himanshu, let's go!
+Alright Himanshu, let us go!
 
 Question 1: Which planet is closest to the sun?
   A) Earth
   B) Venus
   C) Mars
   D) Mercury
-  Your answer: D
-  ✓ Correct!
+  Your answer: hint
+  Hint: It is the smallest planet in our solar system.
+  Your answer now: D
+  Correct!
+  (0.5 points — hint was used)
 
 Question 2: What does CPU stand for?
   A) Central Processing Unit
   B) Computer Personal Unit
   C) Central Program Utility
   D) Core Processing Unit
-  Your answer: B
-  ✗ Wrong! The answer was A
+  Your answer: A
+  Correct!
 
 ...
 
 =============================================
              RESULT
 =============================================
-Score     : 8 / 10
-Percentage: 80.0%
+Score     : 8.5 / 10
+Percentage: 85.0%
 Feedback  : Really good. You know your stuff.
 
 Questions you got wrong:
-  - What does CPU stand for?
   - Who invented the telephone?
 =============================================
+
+--- Your scores this session ---
+  Round 1: 8.5 / 10
+--------------------------------
 
 Play again? (yes / no): no
 
@@ -98,16 +110,18 @@ No installations needed. Just Python 3.
 - How to define and call functions
 - Breaking a program into small single-purpose functions instead of writing everything in one block
 - Passing arguments into functions and returning values back
+- Using a global list to track data across multiple function calls
 - Using `random.shuffle()` to randomize a list
+- Adding a hint system with conditional scoring using `if used_hint`
 - Calling a function recursively to replay the game
 
 ---
 
-## What's next
+## What is next
 
 Planning to add:
-- Difficulty levels (easy / medium / hard)
-- A high score tracker using file handling
+- Save scores to a file so history does not reset when the program closes
+- Difficulty levels with separate question sets
 - Timer per question
 
 ---
@@ -118,7 +132,7 @@ Planning to add:
 |---|---------|---------|
 | 1 | Calculator | Basics, user input, conditionals |
 | 2 | Grade Vault | Loops, nested loops, lists |
-| 3 | Quiz Game | Functions, return values, randomization |
+| 3 | Quiz Game | Functions, return values, global variables, randomization |
 
 ---
 
