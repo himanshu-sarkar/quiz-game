@@ -6,7 +6,7 @@
 
 import random
 
-# this list keeps all scores from this session
+# This list keeps all scores from this session
 # it resets when you close the program (no file saving yet)
 score_history = []
 
@@ -86,7 +86,7 @@ def show_welcome():
     print("=" * 45)
 
 
-# shows all scores from this session
+# shows all the scores from this session
 def show_score_history():
     if len(score_history) == 0:
         print("\nNo previous scores this session.")
@@ -201,7 +201,7 @@ def play_game():
     # rounding so it does not show as 8.000000
     final_score = round(score, 1)
 
-    # saving score to history before showing result
+    # saving score to history before showing the result
     score_history.append(final_score)
 
     show_result(final_score, len(questions), wrong_questions)
