@@ -1,6 +1,6 @@
 # Quiz Game
 
-A simple terminal-based quiz game built in Python. 10 questions, multiple choice, score tracking, hint system, and a replay option — no libraries except `random`.
+Its's a simple terminal-based quiz game built in Python. 10 questions, multiple choice, score tracking, hint system, and a replay option — no libraries except `random`.
 
 Built as my **third Python project** to practice writing and using functions.
 
@@ -19,7 +19,7 @@ Built as my **third Python project** to practice writing and using functions.
 
 ---
 
-## Functions used
+## Functions used in this
 
 | Function | What it does |
 |----------|-------------|
@@ -95,7 +95,7 @@ Thanks for playing, Himanshu. See you next time.
 
 ---
 
-## How to run
+## How to run it
 
 ```bash
 python quiz_game.py
@@ -105,7 +105,7 @@ No installations needed. Just Python 3.
 
 ---
 
-## What I learned
+## What I learned 
 
 - How to define and call functions
 - Breaking a program into small single-purpose functions instead of writing everything in one block
@@ -117,22 +117,7 @@ No installations needed. Just Python 3.
 
 ---
 
-## What is next
 
-Planning to add:
-- Save scores to a file so history does not reset when the program closes
-- Difficulty levels with separate question sets
-- Timer per question
-
----
-
-## Project progression
-
-| # | Project | Concept |
-|---|---------|---------|
-| 1 | Calculator | Basics, user input, conditionals |
-| 2 | Grade Vault | Loops, nested loops, lists |
-| 3 | Quiz Game | Functions, return values, global variables, randomization |
 
 ---
 
