@@ -35,7 +35,7 @@ Each function does exactly one job. That is the whole point.
 
 ---
 
-## Sample Output
+## Sample Output are
 
 ```
 =============================================
@@ -95,7 +95,7 @@ Thanks for playing, Himanshu. See you next time.
 
 ---
 
-## How to run it
+## How to run this
 
 ```bash
 python quiz_game.py
@@ -105,7 +105,7 @@ No installations needed. Just Python 3.
 
 ---
 
-## What I learned 
+## Things I learned 
 
 - How to define and call functions
 - Breaking a program into small single-purpose functions instead of writing everything in one block
