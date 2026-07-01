@@ -1,6 +1,6 @@
 # Quiz Game
 
-Its's a simple terminal-based quiz game built in Python. 10 questions, multiple choice, score tracking, hint system, and a replay option — no libraries except `random`.
+Its's a simple terminal-based quiz game which is built in Python. 10 questions, multiple choice, score tracking, hint system, and a replay option — no libraries except `random`.
 
 Built as my **third Python project** to practice writing and using functions.
 
@@ -19,7 +19,7 @@ Built as my **third Python project** to practice writing and using functions.
 
 ---
 
-## Functions used in this
+## Functions used in it
 
 | Function | What it does |
 |----------|-------------|
@@ -35,7 +35,7 @@ Each function does exactly one job. That is the whole point.
 
 ---
 
-## Sample Output are
+## Sample Output's are
 
 ```
 =============================================
