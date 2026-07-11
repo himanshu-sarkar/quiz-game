@@ -6,7 +6,7 @@ Built as my **third Python project** to practice writing and using functions.
 
 ---
 
-## What it does
+## What it does is
 
 - Asks 10 multiple choice questions (A/B/C/D)
 - Shuffles question order every time so it is not the same each run
@@ -19,7 +19,7 @@ Built as my **third Python project** to practice writing and using functions.
 
 ---
 
-## Functions used in it
+## Functions used in this
 
 | Function | What it does |
 |----------|-------------|
@@ -105,7 +105,7 @@ No installations needed. Just Python 3.
 
 ---
 
-## Things I learned 
+## Things I learned during this project
 
 - How to define and call functions
 - Breaking a program into small single-purpose functions instead of writing everything in one block
