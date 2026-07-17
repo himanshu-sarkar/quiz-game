@@ -1,6 +1,6 @@
 # Quiz Game
 Its's a simple terminal-based quiz game which is built in Python. 10 questions, multiple choice, score tracking, hint system, streak bonus, all-time high score, and a replay option — no libraries except `random`.
-Built as my **third Python project** to practice writing and using functions.
+I built as my **third Python project** to practice writing and using functions.
 ---
 ## What it does is
 - Asks 10 multiple choice questions (A/B/C/D)
