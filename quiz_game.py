@@ -1,14 +1,16 @@
 # ----------------------------------------
 # Quiz Game
 # A simple terminal quiz with score tracking
-# Updated: added hint system and score history
+# Updated: added hint system, score history, streak bonus, all-time high score
 # ----------------------------------------
 
 import random
 
 # This list keeps all scores from this session
-# it resets when you close the program (no file saving yet)
+# it resets when you close the program (no file saving for session scores)
 score_history = []
+
+HIGH_SCORE_FILE = "high_score.txt"
 
 # added a hint key to every question
 questions = [
@@ -83,6 +85,7 @@ def show_welcome():
     print("10 questions. Pick A, B, C or D.")
     print("Type 'hint' to get a clue.")
     print("Using a hint costs 0.5 points if correct.")
+    print("Get 3 correct in a row for a 0.5 streak bonus.")
     print("=" * 45)
 
 
@@ -95,6 +98,21 @@ def show_score_history():
         for i in range(len(score_history)):
             print(f"  Round {i + 1}: {score_history[i]} / 10")
         print("--------------------------------")
+
+
+# reads the all-time high score from file, returns 0 if file doesn't exist yet
+def load_high_score():
+    try:
+        with open(HIGH_SCORE_FILE, "r") as file:
+            return float(file.read().strip())
+    except FileNotFoundError:
+        return 0
+
+
+# writes a new all-time high score to the file
+def save_high_score(new_high):
+    with open(HIGH_SCORE_FILE, "w") as file:
+        file.write(str(new_high))
 
 
 # shows one question with its options
@@ -133,13 +151,18 @@ def get_feedback(score, total):
 
 
 # prints the final result screen
-def show_result(score, total, wrong_questions):
+def show_result(score, total, wrong_questions, high_score, is_new_high):
     print("\n" + "=" * 45)
     print("             RESULT")
     print("=" * 45)
     print(f"Score     : {score} / {total}")
     print(f"Percentage: {(score / total) * 100:.1f}%")
     print(f"Feedback  : {get_feedback(score, total)}")
+
+    if is_new_high:
+        print(f"New all-time high score! ({high_score} / {total})")
+    else:
+        print(f"All-time high score: {high_score} / {total}")
 
     if len(wrong_questions) > 0:
         print("\nQuestions you got wrong:")
@@ -160,12 +183,15 @@ def play_game():
     show_welcome()
     show_score_history()
 
+    high_score = load_high_score()
+
     name = input("\nEnter your name: ")
     print(f"\nAlright {name}, let's go!\n")
 
     random.shuffle(questions)
 
     score = 0
+    streak = 0
     wrong_questions = []
     question_number = 1
 
@@ -185,16 +211,24 @@ def play_game():
         if user_answer.upper() not in ["A", "B", "C", "D"]:
             print("  Invalid input. Counted as wrong.")
             wrong_questions.append(q["question"])
+            streak = 0
         else:
             is_correct = check_answer(user_answer, q["answer"])
             if is_correct:
                 if used_hint:
                     print("  (0.5 points — hint was used)")
                     score = score + 0.5
+                    streak = 0  # hint use breaks the streak
                 else:
                     score = score + 1
+                    streak = streak + 1
+                    if streak == 3:
+                        print("  Streak bonus! +0.5 for 3 in a row")
+                        score = score + 0.5
+                        streak = 0
             else:
                 wrong_questions.append(q["question"])
+                streak = 0
 
         question_number = question_number + 1
 
@@ -204,7 +238,13 @@ def play_game():
     # saving score to history before showing the result
     score_history.append(final_score)
 
-    show_result(final_score, len(questions), wrong_questions)
+    # check and update all-time high score
+    is_new_high = final_score > high_score
+    if is_new_high:
+        high_score = final_score
+        save_high_score(high_score)
+
+    show_result(final_score, len(questions), wrong_questions, high_score, is_new_high)
 
     again = input("\nPlay again? (yes / no): ").strip().lower()
     if again == "yes":
